@@ -29,6 +29,12 @@ app.get('/', function(req, res) {
     res.send('Hello World')  
 });
 
+// Passport middleware
+app.use(passport.initialize());
+
+// Passport config
+require('./config/passport')(passport);
+
 // User Routes
 app.use('/api/users', users)
 app.use('/api/profile', profile)
